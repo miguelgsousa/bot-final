@@ -6,10 +6,16 @@ import requests
 import io
 import aiohttp
 from datetime import datetime, timedelta
+import os
 
 client = discord.Client()
 
-
+is_prod = os.environ.get('IS_HEROKU', None)
+if is_prod:
+    token = os.environ.get('TOKEN')
+else:
+    import secreto
+    token = secreto.token
 
 @client.event
 async def on_ready():
@@ -40,4 +46,4 @@ async def on_message(message):
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
 
-client.run('NDE5MTMzOTEyMzMwMjcyNzc5.DXzEMg.01PI1znwXf26ou-Om7nFAhxCAeg')
+client.run('token')

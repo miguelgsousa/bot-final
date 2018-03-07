@@ -46,4 +46,4 @@ async def on_message(message):
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
 
-client.run('token')
+client.run(token)

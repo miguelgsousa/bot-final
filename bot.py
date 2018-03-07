@@ -30,7 +30,7 @@ async def on_member_join(member):
 
 @client.event
 async def on_member_ban(user):
-    channel = discord.utils.find(lambda c: c.name == 'geral', user.server.channels)
+    channel = discord.utils.find(lambda c: c.name == 'general', user.server.channels)
     embed = discord.Embed(title="I'm so sorry", description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00
 
 )

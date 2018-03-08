@@ -44,8 +44,8 @@ async def on_message(message):
         s = d.seconds * 1000 + d.microseconds // 1000
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
     
-    if message.content.lower().startswith('/diz'):
-        mensagem = re.sub('/diz ', '', message.content)
+    if message.content.lower().startswith('!diz'):
+        mensagem = re.sub('!diz ', '', message.content)
         canaltxt = mensagem.split(' ', 1)
         canaltxt = str(canaltxt[0])
         mensagem = re.sub(canaltxt, '', mensagem)

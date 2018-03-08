@@ -50,7 +50,8 @@ async def on_message(message):
        canaltxt = mensagem.split(' ', 1)
        canaltxt = str(canaltxt[0])
        mensagem = re.sub(canaltxt, '', mensagem)
-       canal = discord.utils.find(lambda r: r.name == canaltxt or r.id == canaltxt or r.mention == canaltxt,message.author.server.channels)
+       canal = discord.utils.find(lambda r: r.name == canaltxt or r.id == canaltxt or r.mention == canaltxt,
+                                  message.author.server.channels)
        await client.send_message(canal, mensagem)
 
 client.run(token)

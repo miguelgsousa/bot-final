@@ -43,5 +43,14 @@ async def on_message(message):
         d = datetime.utcnow() - message.timestamp
         s = d.seconds * 1000 + d.microseconds // 1000
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
-
+    
+    if message.content.lower().startswith('!diz'):
+        mensagem = re.sub('!diz ', '', message.content)
+        canaltxt = mensagem.split(' ', 1)
+        canaltxt = str(canaltxt[0])
+        mensagem = re.sub(canaltxt, '', mensagem)
+        canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt, message.author.server.channels)
+        await client.send_message(canal, mensagem
+        
+        
 client.run(token)

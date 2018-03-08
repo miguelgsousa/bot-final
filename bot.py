@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import asyncio
 import io
+import re
 import aiohttp
 from datetime import datetime, timedelta
 import os

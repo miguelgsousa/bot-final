@@ -32,7 +32,7 @@ async def on_member_join(member):
 @client.event
 async def on_member_ban(user):
     channel = discord.utils.find(lambda c: c.name == 'general', user.server.channels)
-    embed = discord.Embed(title="** AI AI AI LIKE THIS YOU KILL DADDY!**", description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00
+    embed = discord.Embed(title="**LIKE THIS YOU KILL DADDY!**", description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00
 
 )
     embed.set_thumbnail(url=user.avatar_url)

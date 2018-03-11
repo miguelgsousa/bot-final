@@ -27,7 +27,7 @@ async def on_member_join(member):
     await client.send_message(member,
                            'welcome to ' + member.server.name + ' ' + member.mention + '\n first read the rules in # welcome, if you want to call a person or a friend to serve you use this link: https://discord.gg/eRjQKEJ .
                               have a good time ;)')
-    color=0xFF7F00
+    
     await client.add_roles(member)
 
 @client.event

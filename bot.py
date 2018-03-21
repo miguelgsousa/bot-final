@@ -53,5 +53,7 @@ async def on_message(message):
        canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt, message.author.server.channels)
        await client.send_message(canal, mensagem)
 
+    if message.author.server_permissions.administrator:
+        
          
 client.run(token)

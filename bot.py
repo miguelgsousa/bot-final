@@ -53,8 +53,5 @@ async def on_message(message):
        canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt, message.author.server.channels)
        await client.send_message(canal, mensagem)
 
-    if len(message.content) > 100:
-        await client.delete_message(message)
-        await client.send_message(message.channel, 'Sua mensagem possui mais do que 100 caracteres, por isso foi deletada.')   
          
 client.run(token)

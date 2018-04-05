@@ -40,6 +40,15 @@ async def on_member_ban(user):
     
 @client.event
 async def on_message(message):
+    if message.channel == client.get_channel('414445398212476928'):
+        await client.add_reaction(message, "😐")
+    if message.channel == client.get_channel('414449863812710400'):
+        await client.add_reaction(message, "😐")
+    if message.author.id == client.get_author ('419133912330272779'):
+        await client.add_reaction(message, "😐")    
+    
+@client.event
+async def on_message(message):
     if message.content.lower().startswith('!ping') and not message.author.id == '419133912330272779':
         d = datetime.utcnow() - message.timestamp
         s = d.seconds * 1000 + d.microseconds // 1000

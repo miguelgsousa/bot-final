@@ -36,16 +36,7 @@ async def on_member_ban(user):
 
 )
     embed.set_thumbnail(url=user.avatar_url)
-    await client.send_message(channel, embed=embed)
-    
-@client.event
-async def on_message(message):
-    if message.channel == client.get_channel('414445398212476928'):
-        await client.add_reaction(message, "😐")
-    if message.channel == client.get_channel('414449863812710400'):
-        await client.add_reaction(message, "😐")
-    if message.author.id == client.get_author ('419133912330272779'):
-        await client.add_reaction(message, "😐")    
+    await client.send_message(channel, embed=embed)   
     
 @client.event
 async def on_message(message):

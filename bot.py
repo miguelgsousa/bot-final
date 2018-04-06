@@ -38,6 +38,12 @@ async def on_member_ban(user):
     embed.set_thumbnail(url=user.avatar_url)
     await client.send_message(channel, embed=embed)       
  
+@client.event
+async def on_message(message):
+    if message.content.lower().startswith('!ping') and not message.author.id == '419133912330272779':
+        d = datetime.utcnow() - message.timestamp
+        s = d.seconds * 1000 + d.microseconds // 1000
+        await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
 @client.event
 async def on_message(message):
@@ -52,13 +58,6 @@ async def on_message(message):
     if message.author.id == ('155149108183695360'):
         await client.add_reaction(message, "😐")
 
-@client.event
-async def on_message(message):
-    if message.content.lower().startswith('!ping') and not message.author.id == '419133912330272779':
-        d = datetime.utcnow() - message.timestamp
-        s = d.seconds * 1000 + d.microseconds // 1000
-        await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
-    
     if message.content.lower().startswith('!diz'):
        mensagem = re.sub('!diz ', '', message.content)
        canaltxt = mensagem.split(' ', 1)

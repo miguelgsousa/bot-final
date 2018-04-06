@@ -18,6 +18,19 @@ else:
     token = secreto.token
 
 @client.event
+async def on_message(message):
+    if message.channel == client.get_channel('414445398212476928'):
+        await client.add_reaction(message, "😐")
+    if message.channel == client.get_channel('414449863812710400'):
+        await client.add_reaction(message, "😐")
+    if message.author.id == ('419133912330272779'):
+        await client.add_reaction(message, "😐")
+    if message.author.id == ('159985870458322944'):
+        await client.add_reaction(message, "😐")
+    if message.author.id == ('155149108183695360'):
+        await client.add_reaction(message, "😐")    
+    
+@client.event
 async def on_ready():
     await client.change_presence(
         game=discord.Game(type=0, name='with style'))
@@ -55,19 +68,5 @@ async def on_message(message):
 
     if len(message.content) > 325:
         await client.delete_message(message)     
-    
- 
-@client.event
-async def on_message(message):
-    if message.channel == client.get_channel('414445398212476928'):
-        await client.add_reaction(message, "😐")                
-    if message.channel == client.get_channel('414449863812710400'):
-        await client.add_reaction(message, "😐")                
-    if message.author.id == ('419133912330272779'):
-        await client.add_reaction(message, "😐")        
-    if message.author.id == ('159985870458322944'):
-        await client.add_reaction(message, "😐")
-    if message.author.id == ('155149108183695360'):
-        await client.add_reaction(message, "😐")   
-    
+        
 client.run(token)

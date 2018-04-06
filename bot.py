@@ -45,6 +45,18 @@ async def on_message(message):
         s = d.seconds * 1000 + d.microseconds // 1000
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
+    if message.content.lower().startswith('!diz'):
+       mensagem = re.sub('!diz ', '', message.content)
+       canaltxt = mensagem.split(' ', 1)
+       canaltxt = str(canaltxt[0])
+       mensagem = re.sub(canaltxt, '', mensagem)
+       canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt, message.author.server.channels)
+       await client.send_message(canal, mensagem)
+
+    if len(message.content) > 325:
+        await client.delete_message(message)     
+    
+ 
 @client.event
 async def on_message(message):
     if message.channel == client.get_channel('414445398212476928'):
@@ -56,17 +68,6 @@ async def on_message(message):
     if message.author.id == ('159985870458322944'):
         await client.add_reaction(message, "😐")
     if message.author.id == ('155149108183695360'):
-        await client.add_reaction(message, "😐")
-
-    if message.content.lower().startswith('!diz'):
-       mensagem = re.sub('!diz ', '', message.content)
-       canaltxt = mensagem.split(' ', 1)
-       canaltxt = str(canaltxt[0])
-       mensagem = re.sub(canaltxt, '', mensagem)
-       canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt, message.author.server.channels)
-       await client.send_message(canal, mensagem)
-
-    if len(message.content) > 325:
-        await client.delete_message(message)     
+        await client.add_reaction(message, "😐")   
     
 client.run(token)

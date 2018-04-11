@@ -51,14 +51,16 @@ async def on_message(message):
         s = d.seconds * 1000 + d.microseconds // 1000
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
-    if message.content.lower().startswith('!diz'):
-        mensagem = re.sub('!diz ', '', message.content)
-        canaltxt = mensagem.split(' ', 1)
-        canaltxt = str(canaltxt[0])
-        mensagem = re.sub(canaltxt, '', mensagem)
-        canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,
-                                   message.author.server.channels)
-        await client.send_message(canal, mensagem)
+        if message.content.lower().startswith('!diz'):
+
+        try:
+
+            await client.send_message(message.channel, message.content[4:])
+            await client.delete_message(message)
+
+        except:
+            await client.send_message(message.channel, 'Write something for me to repeat.')
+
 
     if len(message.content) > 325:
         await client.delete_message(message)

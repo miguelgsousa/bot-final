@@ -52,7 +52,6 @@ async def on_message(message):
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
     if message.content.lower().startswith('!diz'):
-
     try:
 
         await client.send_message(message.channel, message.content[4:])
@@ -60,7 +59,6 @@ async def on_message(message):
 
     except:
         await client.send_message(message.channel, 'Write something for me to repeat.')
-
 
     if len(message.content) > 325:
         await client.delete_message(message)

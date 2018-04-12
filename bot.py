@@ -60,8 +60,7 @@ async def on_message(message):
          canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)
          await client.send_message(canal, mensagem)
 
-    if message.content.lower().startswith("!ban"):
-      try:       
+    if message.content.lower().startswith("!ban"):       
         role = discord.utils.get(message.server.roles, name='Moderator')
         author = message.author.mention
         user = message.mentions[0]

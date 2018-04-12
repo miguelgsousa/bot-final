@@ -60,6 +60,13 @@ async def on_message(message):
          canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)
          await client.send_message(canal, mensagem)
 
+    if message.content.lower().startswith("!ban"):
+      try:       
+        role = discord.utils.get(message.server.roles, name='INSIRA O NOME DO CARGO AQUI')
+        author = message.author.mention
+        user = message.mentions[0]
+        await client.ban(user)
+            
     if len(message.content) > 325:
         await client.delete_message(message)
 

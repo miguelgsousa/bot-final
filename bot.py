@@ -58,6 +58,8 @@ async def on_message(message):
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)    
         role = discord.utils.get(message.server.roles, name='Skyton')
+        role = discord.utils.get(message.server.roles, name='Admin')
+        role = discord.utils.get(message.server.roles, name='Ban')
         author = message.author.mention
         user = message.mentions[0]
         await client.ban(user)

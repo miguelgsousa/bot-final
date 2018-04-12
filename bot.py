@@ -49,22 +49,13 @@ async def on_message(message):
          await client.send_message(canal, mensagem)
 
     if message.content.lower().startswith("!ban"):
-        await client.delete_message(message)
-    if message.author.id == "419133912330272779":    
+        await client.delete_message(message)    
         role = discord.utils.get(message.server.roles, name='Skyton')
         role = discord.utils.get(message.server.roles, name='Admin')
         role = discord.utils.get(message.server.roles, name='Moderator')
         author = message.author.mention
         user = message.mentions[0]
         await client.ban(user)
-        channel = discord.utils.find(lambda c: c.name == 'general', user.server.channels)
-        embed = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",
-                          description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00
-
-                          )
-    embed.set_thumbnail(url=user.avatar_url)
-    await client.send_message(channel, embed=embed)
-    await client.add_reaction(message, "😮")
     
     if len(message.content) > 325:
         await client.delete_message(message)

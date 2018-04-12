@@ -50,6 +50,7 @@ async def on_message(message):
 
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)
+    if message.author.id == "419133912330272779":    
         role = discord.utils.get(message.server.roles, name='Skyton')
         role = discord.utils.get(message.server.roles, name='Admin')
         role = discord.utils.get(message.server.roles, name='Moderator')

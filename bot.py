@@ -61,6 +61,8 @@ async def on_message(message):
          await client.send_message(canal, mensagem)
 
     if message.content.lower().startswith("!ban"):       
+        role = discord.utils.get(message.server.roles, name='Skyton')
+        role = discord.utils.get(message.server.roles, name='Admin')
         role = discord.utils.get(message.server.roles, name='Moderator')
         author = message.author.mention
         user = message.mentions[0]

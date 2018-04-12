@@ -32,18 +32,6 @@ async def on_member_join(member):
 
     await client.add_roles(member)
 
-
-@client.event
-async def on_member_ban(user):
-    channel = discord.utils.find(lambda c: c.name == 'general', user.server.channels)
-    embed = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",
-                          description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00
-
-                          )
-    embed.set_thumbnail(url=user.avatar_url)
-    await client.send_message(channel, embed=embed)
-
-
 @client.event
 async def on_message(message):
     if message.content.lower().startswith('!ping') and not message.author.id == '419133912330272779':
@@ -67,7 +55,15 @@ async def on_message(message):
         author = message.author.mention
         user = message.mentions[0]
         await client.ban(user)
-            
+        channel = discord.utils.find(lambda c: c.name == 'general', user.server.channels)
+        embed = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",
+                          description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00
+
+                          )
+    embed.set_thumbnail(url=user.avatar_url)
+    await client.send_message(channel, embed=embed)
+    await client.add_reaction(message, "😮")
+    
     if len(message.content) > 325:
         await client.delete_message(message)
 

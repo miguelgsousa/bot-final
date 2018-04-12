@@ -33,11 +33,11 @@ async def on_member_join(member):
     await client.add_roles(member)
 
 @client.event
- async def on_member_ban(user):
-     channel = discord.utils.find(lambda c: c.name == 'general', user.server.channels)
-     embed = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00)
-     embed.set_thumbnail(url=user.avatar_url)
-     await client.send_message(channel, embed=embed)   
+async def on_member_ban(user):
+    channel = discord.utils.find(lambda c: c.name == 'general', user.server.channels)
+    embed = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00)
+    embed.set_thumbnail(url=user.avatar_url)
+    await client.send_message(channel, embed=embed)   
     
 @client.event
 async def on_message(message):

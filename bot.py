@@ -48,7 +48,8 @@ async def on_message(message):
          canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)
          await client.send_message(canal, mensagem)
 
-    if message.content.lower().startswith("!ban"):       
+    if message.content.lower().startswith("!ban"):
+        await client.delete_message(message)
         role = discord.utils.get(message.server.roles, name='Skyton')
         role = discord.utils.get(message.server.roles, name='Admin')
         role = discord.utils.get(message.server.roles, name='Moderator')

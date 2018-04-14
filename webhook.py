@@ -4,17 +4,18 @@ from datetime import datetime
 client = WebhookClient()
 
 em = Embed(
-    color=0x00FFFF, 
-    description='This is the **description** of the embed!',
+    color=0xdb2724, 
+    description= video._url,
     timestamp=str(datetime.utcnow())
     ) 
 
-em.set_author(name='Author Goes Here', icon_url='https://i.imgur.com/rdm3W9t.png')
-em.add_field(name='Test Field',value='Value of the field')
-em.add_field(name='Another Field',value='1234')
-em.set_thumbnail('https://i.imgur.com/rdm3W9t.png')
-em.set_image('https://i.imgur.com/f1LOr4q.png')
-em.set_footer(text='Here is my footer text',icon_url='https://i.imgur.com/rdm3W9t.png')
+em.set_author(name= 'Skyton posted a new video!', icon_url= user.name == 'Skyton' user.avatar_url )
+em.add_field(name='Video Title',value= videoTitle)
+em.add_field(name= 'Duration',value= videoDuration)
+em.set_thumbnail('https://yt3.ggpht.com/-PFnoIFfzibg/AAAAAAAAAAI/AAAAAAAABlw/2XRZhWeVTDI/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg')
+em.set_image(video.thubnail_url)
+em.set_footer(text='If you do not want to receive notification of the new videos, click on the channel bell.',icon_url='https://blog.beekeeper.io/wp-content/uploads/2014/05/Youtube-button.png')
+ await Client.send_message(Client.get_channel(default_notification_ann_channel), '@everyone', embed = em)
 
 @client.on('start')
 async def main():

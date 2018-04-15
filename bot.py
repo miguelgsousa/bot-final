@@ -71,7 +71,7 @@ async def on_message(message):
         await client.add_reaction(message, "😐")
         
     if message.channel == client.get_channel('414449863812710400'):
-        await client.add_reaction(message, "😐")
+        await client.add_reaction(message, ":youtube:435115697161633792")
         
     if message.author.id == ('419133912330272779'):
         await client.add_reaction(message, "😐")

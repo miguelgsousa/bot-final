@@ -54,7 +54,7 @@ async def on_message(message):
          canaltxt = str(canaltxt[0])
          mensagem = re.sub(canaltxt, '', mensagem)
          canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)
-         await client.send_message(message.channel '@everyone', canal, mensagem)
+         await client.send_message(message.channel, '@everyone', canal, mensagem)
        
    
 

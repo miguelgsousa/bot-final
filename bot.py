@@ -48,7 +48,7 @@ async def on_message(message):
 
     if message.content.lower().startswith('!diz'):
          await client.delete_message(message)
-         channel = discord.utils.find(lambda c: c.name == 'notification', message.server.channels)   
+         channel = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)   
          mensagem = re.sub('!diz ', '', message.content)
          canaltxt = mensagem.split(' ', 1)
          canaltxt = str(canaltxt[0])

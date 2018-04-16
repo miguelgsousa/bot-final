@@ -52,8 +52,8 @@ async def on_message(message):
          canaltxt = mensagem.split(' ', 1)
          canaltxt = str(canaltxt[0])
          mensagem = re.sub(canaltxt, '', mensagem)
-         canal = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)   
-         await client.send_message(message.canal, '@everyone', canal, mensagem)                
+         canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)  
+         await client.send_message(canal, mensagem)                
 
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)    

@@ -53,7 +53,7 @@ async def on_message(message):
          canaltxt = str(canaltxt[0])
          mensagem = re.sub(canaltxt, '', mensagem)
          canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)
-         await client.send_message(canal, mensagem '@everyone')
+         await client.send_message(canal, mensagem, '@everyone')
 
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)    
@@ -69,9 +69,6 @@ async def on_message(message):
 
     if message.channel == client.get_channel('414445398212476928'):
         await client.add_reaction(message, "😐")
-        
-    if message.channel == client.get_channel('414449863812710400'):
-        await client.add_reaction(message, ":youtube:435115697161633792")
         
     if message.author.id == ('159985870458322944'):
         await client.add_reaction(message, "😐")

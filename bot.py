@@ -47,16 +47,13 @@ async def on_message(message):
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
     if message.content.lower().startswith('!diz'):
-         await client.delete_message(message)
-         channel = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)   
+         await client.delete_message(message)  
          mensagem = re.sub('!diz ', '', message.content)
          canaltxt = mensagem.split(' ', 1)
          canaltxt = str(canaltxt[0])
          mensagem = re.sub(canaltxt, '', mensagem)
-         canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)
-         await client.send_message(message.channel, '@everyone', canal, mensagem)
-       
-   
+         canal = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)   
+         await client.send_message(message.canal, '@everyone', canal, mensagem)                
 
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)    

@@ -46,14 +46,14 @@ async def on_message(message):
         s = d.seconds * 1000 + d.microseconds // 1000
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
-    if message.content.lower().startswith('!diz'):  
-         mensagem = re.sub('!diz ', '', message.content)
-         canaltxt = mensagem.split(' ', 1)
-         canaltxt = str(canaltxt[0])
-         mensagem = re.sub(canaltxt, '', mensagem)
-         canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)  
-         await client.send_message(canal, mensagem)                
-
+    if message.content.lower().startswith('!diz'):
+        await client.delete_message(message)
+        mensagem = re.sub('!diz ', '', message.content)
+        canal = discord.utils.find(lambda c: c.name == 'notification', message.server.channels)
+        em = discord.Embed(title='Anuncio da Moderação', description=mensagem, colour=0xFF7F00)
+        em.set_footer(text='Mensagem enviada por ' + message.author.name + '', icon_url=message.author.avatar_url)
+        await client.send_message(canal, mensagem, message.channel,'@everyone', embed=em)
+             
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)    
         role = discord.utils.get(message.server.roles, name='Skyton')

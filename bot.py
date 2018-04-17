@@ -49,7 +49,7 @@ async def on_message(message):
         if message.content.lower().startswith('!diz'):
         await client.delete_message(message)
         mensagem = re.sub('!diz ', '', message.content)
-        canaltxt = ('adverts ', 1)
+        canaltxt = (' ', 1)
         mensagem = re.sub(canaltxt, '', mensagem)
         canal = discord.utils.find(lambda c: c.name == canaltxt or c.id == canaltxt or c.mention == canaltxt,message.author.server.channels)
         em = discord.Embed(title='Anuncio da Moderação', description=mensagem, colour=0xFF7F00)

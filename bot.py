@@ -46,9 +46,9 @@ async def on_message(message):
         s = d.seconds * 1000 + d.microseconds // 1000
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
-    if message.content.startswith('!diz'):
+    if message.content.startswith('!advert'):
         role = discord.utils.get(message.server.roles, name='Admin')
-        mensagem = message.content[4:]
+        mensagem = message.content[8:]
         canal = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)
         em = discord.Embed(description=mensagem, colour=0xFF7F00)
         em.set_author(name='Aviso da moderação!', icon_url=message.author.avatar_url)

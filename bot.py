@@ -52,7 +52,7 @@ async def on_message(message):
         canal = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)
         em = discord.Embed(description=mensagem, colour=0xFF7F00)
         em.set_author(name='Aviso da moderação!', icon_url=message.author.avatar_url)
-        em.set_footer(text='Att.' + message.author.name + ', Admin do Skyton server.')
+        em.set_footer(text='Att.\n' + message.author.name + ', Admin do Skyton server.')
         await client.send_message(canal, '@everyone', embed=em)
              
     if message.content.lower().startswith("!ban"):

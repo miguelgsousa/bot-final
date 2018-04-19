@@ -1,3 +1,3 @@
 # sobre #
-'bot do Skyton server'
+bot do Skyton server
 

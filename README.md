@@ -1,1 +1,3 @@
-"# bot-final" 
+# sobre #
+'bot do Skyton server'
+

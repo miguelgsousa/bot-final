@@ -50,7 +50,7 @@ async def on_message(message):
         role = discord.utils.get(message.server.roles, name='Admin')
         mensagem = message.content[8:]
         canal = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)
-        em = discord.Embed(description=mensagem, colour=0xFF7F00)
+        em = discord.Embed(description=mensagem, colour=0xdb513a)
         em.set_author(name='Notice of moderation!', icon_url=message.author.avatar_url)
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
         await client.send_message(canal, '@everyone', embed=em)

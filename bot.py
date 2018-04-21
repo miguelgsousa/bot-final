@@ -71,7 +71,8 @@ async def on_message(message):
     if message.author.id == ('155149108183695360'):
         await client.add_reaction(message, "😐")
 
-    if (message.content) > [5:]
+    msg = user.id    
+    if (msg) > 5:
         member = user.id
         Medion_user = discord.utils.get(member.server.roles, name="Medion user")
         await client.add_roles(member, Medion_user)        

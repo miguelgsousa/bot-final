@@ -30,14 +30,7 @@ async def on_member_join(member):
     await client.send_message(member,
                               '-  Helo **' + member.name + '** welcome to **' + member.server.name + '** !  - \n First read the rules in # welcome, if you want to call a person or a friend to serve you use this link:https://discord.gg/eRjQKEJ \n have a good time :wink:')
 
-    await client.add_roles(member)
-
-@client.event
-async def on_member_ban(user):
-    channel = discord.utils.find(lambda c: c.name == 'general', user.server.channels)
-    embed = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="the member **@{0.name}** was banned from the server".format(user), color=0xFF7F00)
-    embed.set_thumbnail(url=user.avatar_url)
-    await client.send_message(channel, embed=embed)   
+    await client.add_roles(member)   
     
 @client.event
 async def on_message(message):

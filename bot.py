@@ -72,7 +72,7 @@ async def on_message(message):
         await client.add_reaction(message, "😐")
 
      
-    if message.user > 5:
+    if len(user.id) > 5:
         member = user.id
         Medion_user = discord.utils.get(member.server.roles, name="Medion user")
         await client.add_roles(member, Medion_user)        

@@ -76,5 +76,6 @@ async def on_message(message):
         member = user.id
         Medion_user = discord.utils.get(member.server.roles, name="Medion user")
         await client.add_roles(member, Medion_user)        
-
+    else:
+        client.append(user.id)
 client.run(token)

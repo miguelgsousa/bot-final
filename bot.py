@@ -71,11 +71,24 @@ async def on_message(message):
     if message.author.id == ('155149108183695360'):
         await client.add_reaction(message, "😐")
 
-    if len(user.id) > 5:
+    if len(user.id) > 300:
         member = user.id
         Medion_user = discord.utils.get(member.server.roles, name="Medion user")
         await client.add_roles(member, Medion_user)        
     else:
         client.append(user.id)
+        
+    if message.content.lower().startswith('!a'):
+        canal = discord.utils.find(lambda c: c.name == 'notification', message.server.channels)
+        Skyton = member.id == ("410173139084115968")
+        em = discord.Embed(description='https://www.youtube.com/watch?v=4agdwM8miZw&t', colour=0xdb2724)
+        em.set_author(name='Skyton posted a new video!', icon_url=Skyton.avatar_url)
+        em.add_field(name='Video Title', value='video title')
+        em.add_field(name='Duration', value='videoDuration'),
+        em.set_thumbnail(url ='https://yt3.ggpht.com/-PFnoIFfzibg/AAAAAAAAAAI/AAAAAAAABlw/2XRZhWeVTDI/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg')
+        em.set_image(url='https://i1.ytimg.com/vi/4agdwM8miZw&t/hqdefault.jpg')
+        em.set_footer(text='If you do not want to receive notification of the new videos, click on the channel bell.', icon_url='https://cdn.discordapp.com/attachments/414502767881617408/435123830848225280/unnamed.png')
+        botmsg = await client.send_message(canal,'@everyone', embed=em)
+        await client.add_reaction(botmsg, ":youtube:436314272142721034")        
         
 client.run(token)

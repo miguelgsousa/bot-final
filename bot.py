@@ -32,7 +32,7 @@ async def on_member_join(member):
     
 @client.event
 async def on_member_message(member, message):
-    if len(message.member) > 175:
+    if len(message.member.content) > 5:
         Medion_user = discord.utils.get(member.server.roles, name="Medion user")
         await client.add_roles(member, Medion_user)    
     

@@ -27,10 +27,14 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    await client.send_message(member,
-                              '-  Helo **' + member.name + '** welcome to **' + member.server.name + '** !  - \n First read the rules in # welcome, if you want to call a person or a friend to serve you use this link:https://discord.gg/eRjQKEJ \n have a good time :wink:')
-
-    await client.add_roles(member)   
+    await client.send_message(member,'-  Helo **' + member.name + '** welcome to **' + member.server.name + '** !  - \n First read the rules in # welcome, if you want to call a person or a friend to serve you use this link:https://discord.gg/eRjQKEJ \n have a good time :wink:')
+    await client.add_roles(member)
+    
+@client.event
+async def on_member_message(member, message):
+    if len(message.member) > 170:
+        Medion_user = discord.utils.get(member.server.roles, name="Medion user")
+        await client.add_roles(member, Medion_user)    
     
 @client.event
 async def on_message(message):

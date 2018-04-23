@@ -61,13 +61,6 @@ async def on_message(message):
         await client.add_reaction(message, "😐")
         
     if message.author.id == ('155149108183695360'):
-        await client.add_reaction(message, "😐")
-
-    if len(user.id) > 300:
-        member = user.id
-        Medion_user = discord.utils.get(member.server.roles, name="Medion user")
-        await client.add_roles(member, Medion_user)        
-    else:
-        client.append(user.id)
+        await client.add_reaction(message, "😐
         
 client.run(token)

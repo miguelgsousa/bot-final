@@ -50,17 +50,6 @@ async def on_message(message):
         em.set_author(name='Notice of moderation!', icon_url=message.author.avatar_url)
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
         await client.send_message(canal, '@everyone', embed=em)
-             
-    if message.content.lower().startswith("!ban"):
-        await client.delete_message(message)
-        role = discord.utils.get(message.server.roles, name='Admin')
-        role = discord.utils.get(message.server.roles, name='Ban')
-        author = message.author
-        user = message.mentions[0]
-        em = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="Moderator **{}** banned member **{}** from server".format(author.name, user),color=0xFF7F00)
-        em.set_thumbnail(url=user.avatar_url)
-    ban = await client.ban(user)
-    await client.send_message(ban, message.channel, embed=em)
     
     if len(message.content) > 325:
         await client.delete_message(message)

@@ -56,10 +56,10 @@ async def on_message(message):
         role = discord.utils.get(message.server.roles, name='Admin')
         role = discord.utils.get(message.server.roles, name='Ban')
         author = message.author
-        user = message.mentions[0]
+        member_ban = message.mentions[0]
         em = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="Moderator **{}** banned member **{}** from server".format(author.name, user),color=0xFF7F00)
         em.set_thumbnail(url=user.avatar_url)
-        ban = await client.ban(user)
+        ban = await client.ban(member_ban)
         await client.send_message(ban, message.channel, embed=em)
     
     if len(message.content) > 325:

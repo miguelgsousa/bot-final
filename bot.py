@@ -21,7 +21,7 @@ else:
 
 @client.event
 async def on_ready():
-    await client.change_presence(game=discord.Game(name='with style', type=3), status=discord.Status.idle)
+    await client.change_presence(game=discord.Game(type=3, name='Whats happening on the server'), status=discord.Status.idle)
 
 @client.event
 async def on_member_join(member):

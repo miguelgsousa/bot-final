@@ -58,8 +58,8 @@ async def on_message(message):
         user = message.mentions[0]
         em = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="Moderator **{}** banned member **{}** from server".format(author.name, user),color=0xFF7F00)
         em.set_thumbnail(url=user.avatar_url)
-        ban = await client.ban(user)
-        await client.send_message(ban, message.channel, embed=em)
+        await client.send_message(message.channel, embed=em)
+        await client.ban(user)
     
     if len(message.content) > 325:
         await client.delete_message(message)

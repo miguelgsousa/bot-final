@@ -58,7 +58,6 @@ async def on_message(message):
         user = message.mentions[0]
         em = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="Moderator **{}** banned member **{}** from server".format(author.name, user),color=0xFF7F00)
         em.set_thumbnail(url=user.avatar_url)
-        await client.send_message(user,'Por um ou mais motivos você foi banido do skyton server, se você acha que foi um ban injusto entre neste link para revogar o seu ban')
         await client.send_message(message.channel, embed=em)
         await client.ban(user)
     

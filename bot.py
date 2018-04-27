@@ -29,10 +29,9 @@ async def on_member_join(member):
     await client.add_roles(member)
     
 @client.event
-async def on_member_message(member, message):
-    if len(message.member.content) > 20:
-        Medion_user = discord.utils.get(member.server.roles, name="Medion user")
-        await client.add_roles(member, Medion_user)    
+async def on_member_ban(member):
+    em = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)
+    await client.send_message(member, embed=em)    
     
 @client.event
 async def on_message(message):

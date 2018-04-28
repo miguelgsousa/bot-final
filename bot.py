@@ -18,6 +18,7 @@ else:
 
     token = secreto.token
 
+msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)    
 
 @client.event
 async def on_ready():
@@ -53,8 +54,7 @@ async def on_message(message):
         user = message.mentions[0]
         em = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="Moderator **{}** banned member **{}** from server".format(author.name, user),color=0xFF7F00)
         em.set_thumbnail(url=user.avatar_url)
-        em2 = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)
-        await client.send_message(user, embed=em2)
+        await client.send_message(user, embed=msgban)
         await client.send_message(message.channel, embed=em)
         await client.ban(user)
     

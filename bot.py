@@ -61,14 +61,11 @@ async def on_message(message):
     
     if len(message.content) > 325:
         await client.delete_message(message)
-        
-user = message.author        
-
-msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
 
     if message.content.lower().startswith("https://www.xvideos.com"):
         await client.delete_message(message)
         user = message.author
+        msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         msgchannel = await client.send_message(message.channel.msgban2)
         await client.add_reaction(msgchannel, "😮")
         await client.send_message(user, embed=msgban)
@@ -77,6 +74,7 @@ msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",descript
     if message.content.lower().startswith("http://www.redtube.com"):
         await client.delete_message(message)
         user = message.author
+        msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         msgchannel = await client.send_message(message.channel.msgban2)
         await client.add_reaction(msgchannel, "😮")
         await client.send_message(user, embed=msgban)

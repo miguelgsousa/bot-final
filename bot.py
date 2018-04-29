@@ -17,6 +17,8 @@ else:
     import secreto
 
     token = secreto.token
+
+msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)                            
     
 @client.event
 async def on_ready():
@@ -43,8 +45,6 @@ async def on_message(message):
         em.set_author(name='Notice of moderation!', icon_url=message.author.avatar_url)
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
         await client.send_message(canal, '@everyone', embed=em)
-
-msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)                        
         
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)

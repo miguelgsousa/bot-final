@@ -61,7 +61,7 @@ async def on_message(message):
     if len(message.content) > 325:
         await client.delete_message(message)
         
-    if message.content.lower().startswith("https://www.xvideos.com"):
+    if message.content.lower().startswith("https://www.xvideos.com", "http://www.redtube.com"):
         user = message.author
         await client.send_message(user, embed=msgban)
         await client.ban(user)

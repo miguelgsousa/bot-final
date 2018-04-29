@@ -20,6 +20,9 @@ else:
 
 msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)    
 
+msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
+msgban2.set_thumbnail(url=user.avatar_url)
+
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(type=3, name='the events on the server'))
@@ -28,7 +31,7 @@ async def on_ready():
 async def on_member_join(member):
     em = discord.Embed(title='-  Helo **' + member.name + '** welcome to **' + member.server.name + '** ! -',description='First read the rules in # welcome, if you want to call a person or a friend to serve you use this' '[ link ](' + "https://discord.gg/eRjQKEJ" + ')''\n have a good time :wink:',colour=0xFF7F00)
     await client.send_message(member, embed=em)
-    await client.add_roles(member)    
+    await client.add_roles(member) 
     
 @client.event
 async def on_message(message):
@@ -55,16 +58,33 @@ async def on_message(message):
         em = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="Moderator **{}** banned member **{}** from server".format(author.name, user),color=0xFF7F00)
         em.set_thumbnail(url=user.avatar_url)
         await client.send_message(user, embed=msgban)
-        await client.send_message(message.channel, embed=em)
+        msgchannel = await client.send_message(message.channel, embed=em)
+        await client.add_reaction(msgchannel, "😮")
         await client.ban(user)
     
     if len(message.content) > 325:
         await client.delete_message(message)
         
     if message.content.lower().startswith("https://www.xvideos.com"):
+        await client.delete_message(message)
         user = message.author
+        msgchannel = await client.send_message(message.channel.msgban2)
+        await client.add_reaction(msgchannel, "😮")
         await client.send_message(user, embed=msgban)
         await client.ban(user)
+        
+    if message.content.lower().startswith("http://www.redtube.com"):
+        await client.delete_message(message)
+        user = message.author
+        msgchannel = await client.send_message(message.channel.msgban2)
+        await client.add_reaction(msgchannel, "😮")
+        await client.send_message(user, embed=msgban)
+        await client.ban(user)    
+        
+    if message.content.lower().startswith("https://discord.gg"):
+        await client.delete_message(message)
+        user = message.author
+        await client.send_message(message.channel, "Please do not send invitation {}#{}" .format(user.name,user.discriminator))      
         
     if message.channel == client.get_channel('414445398212476928'):
         await client.add_reaction(message, "😐")

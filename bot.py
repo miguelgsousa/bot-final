@@ -20,8 +20,7 @@ else:
 
 msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)    
 
-msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
-msgban2.set_thumbnail(url=user.avatar_url)
+msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00) msgban2.set_thumbnail(url=user.avatar_url)
 
 @client.event
 async def on_ready():

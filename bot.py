@@ -18,12 +18,6 @@ else:
 
     token = secreto.token
 
-msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)    
-
-msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
-
-
-
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(type=3, name='the events on the server'))
@@ -49,7 +43,10 @@ async def on_message(message):
         em.set_author(name='Notice of moderation!', icon_url=message.author.avatar_url)
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
         await client.send_message(canal, '@everyone', embed=em)
- 
+
+msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)            
+msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)      
+        
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)
         role = discord.utils.get(message.server.roles, name='Admin')

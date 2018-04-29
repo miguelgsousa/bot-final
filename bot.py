@@ -70,7 +70,7 @@ async def on_message(message):
         msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         msgchannel = await client.send_message(message.channel, embed=msgban2)
         await client.add_reaction(msgchannel, "😮")
-        await client.send_message(user, embed=msgban)
+        await client.send_message(user, embed=msgban3)
         await client.ban(user)
         
     if message.content.lower().startswith("http://www.redtube.com"):
@@ -79,7 +79,7 @@ async def on_message(message):
         msgban2 = discord.Embed(title=" **THIS WAY YOU'RE GONNA KILL DADDY!** ",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         msgchannel = await client.send_message(message.channel, embed=msgban2)
         await client.add_reaction(msgchannel, "😮")
-        await client.send_message(user, embed=msgban)
+        await client.send_message(user, embed=msgban3)
         await client.ban(user)    
         
     if message.content.lower().startswith("https://discord.gg"):

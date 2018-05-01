@@ -22,8 +22,6 @@ msgban = discord.Embed(title='For one or more reasons you have been banned from 
 
 msgban3 = discord.Embed(title='You have been banned from skyton server!',description='You have been banned automatically banned for violating rule number 9 of the server(send content +18 in text chat),enter' '[ this link ](' + "https://goo.gl/kDKqhF" + ')' 'if any mistake has been made',colour=0xFF7F00)                            
 
-logmsg = discord.object.id == ('440210099596689424')
-
 @client.event
 async def on_ready():
     await client.change_presence(game=discord.Game(type=3, name='the events on the server'))
@@ -36,6 +34,9 @@ async def on_member_join(member):
     
 @client.event
 async def on_message(message):
+    
+logmsg = discord.object.id == ('440210099596689424')    
+    
     if message.content.lower().startswith('!ping') and not message.author.id == '419133912330272779':
         d = datetime.utcnow() - message.timestamp
         s = d.seconds * 1000 + d.microseconds // 1000

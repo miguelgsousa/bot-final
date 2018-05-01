@@ -28,8 +28,7 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    em = discord.Embed(title='-  Helo **' + member.name + '** welcome to **' + member.server.name + '** ! -',description='First read the rules in # welcome, if you want to call a person or a friend to serve you use this' '[ link ](' + "https://discord.gg/eRjQKEJ" + ')',colour=0xFF7F00)
-    em.set_footer(text='have a good time :wink:')
+    em = discord.Embed(title='-  Helo **' + member.name + '** welcome to **' + member.server.name + '** ! -',description='First read the rules in # welcome, if you want to call a person or a friend to serve you use this' '[ link ](' + "https://discord.gg/eRjQKEJ" + ')' '\n have a good time :wink:',colour=0xFF7F00)
     await client.send_message(member, embed=em)
     await client.add_roles(member) 
     

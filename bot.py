@@ -33,16 +33,14 @@ async def on_member_join(member):
     await client.add_roles(member) 
     
 @client.event
-async def on_message(message):
-    
-logmsg = discord.object.id == ('440210099596689424')    
-    
+async def on_message(message):    
     if message.content.lower().startswith('!ping') and not message.author.id == '419133912330272779':
         d = datetime.utcnow() - message.timestamp
         s = d.seconds * 1000 + d.microseconds // 1000
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
 
     if message.content.startswith('!advert'):
+        logmsg = discord.object.id == ('440210099596689424')    
         role = discord.utils.get(message.server.roles, name='Admin')
         mensagem = message.content[8:]
         canal = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)
@@ -57,6 +55,7 @@ logmsg = discord.object.id == ('440210099596689424')
         
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)
+        logmsg = discord.object.id == ('440210099596689424')
         role = discord.utils.get(message.server.roles, name='Admin')
         role = discord.utils.get(message.server.roles, name='Ban')
         author = message.author
@@ -77,6 +76,7 @@ logmsg = discord.object.id == ('440210099596689424')
 
     if message.content.lower().startswith("https://www.xvideos.com"):
         await client.delete_message(message)
+        logmsg = discord.object.id == ('440210099596689424')
         user = message.author
         msgban2 = discord.Embed(title="THIS WAY YOU'RE GONNA KILL DADDY!",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         msgchannel = await client.send_message(message.channel, embed=msgban2)
@@ -89,6 +89,7 @@ logmsg = discord.object.id == ('440210099596689424')
         
     if message.content.lower().startswith("http://www.redtube.com"):
         await client.delete_message(message)
+        logmsg = discord.object.id == ('440210099596689424')
         user = message.author
         msgban2 = discord.Embed(title="THIS WAY YOU'RE GONNA KILL DADDY!",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         msgchannel = await client.send_message(message.channel, embed=msgban2)
@@ -101,6 +102,7 @@ logmsg = discord.object.id == ('440210099596689424')
         
     if message.content.lower().startswith("https://discord.gg"):
         await client.delete_message(message)
+        logmsg = discord.object.id == ('440210099596689424')
         user = message.author
         await client.send_message(message.channel, "Please do not send invitation @{}#{}" .format(user.name,user.discriminator))      
         

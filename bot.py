@@ -22,7 +22,7 @@ msgban = discord.Embed(title='For one or more reasons you have been banned from 
 
 msgban3 = discord.Embed(title='You have been banned from skyton server!',description='You have been banned automatically banned for violating rule number 9 of the server(send content +18 in text chat),enter' '[ this link ](' + "https://goo.gl/kDKqhF" + ')' 'if any mistake has been made',colour=0xFF7F00)                            
 
-logmsg = discord.object.id == '440210099596689424'
+logmsg = discord.object.id == ('440210099596689424')
 
 @client.event
 async def on_ready():

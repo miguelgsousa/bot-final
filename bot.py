@@ -1,4 +1,3 @@
-
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
@@ -22,8 +21,6 @@ else:
 msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)                            
 
 msgban3 = discord.Embed(title='You have been banned from skyton server!',description='You have been banned automatically banned for violating rule number 9 of the server(send content +18 in text chat),enter' '[ this link ](' + "https://goo.gl/kDKqhF" + ')' 'if any mistake has been made',colour=0xFF7F00)                            
-
-canal = discord.utils.find(lambda c: c.name == 'log', message.server.channels)
 
 @client.event
 async def on_ready():
@@ -55,6 +52,8 @@ async def on_message(message):
         log.set_footer(text='Att.{}, Skyton server admin.')
         await client.send_message(canal, '@everyone', embed=em)
         await client.send_message(logmsg, embed=log)        
+        
+logmsg = discord.utils.find(lambda c: c.name == 'log', message.server.channels)
         
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)

@@ -16,11 +16,7 @@ if is_prod:
 else:
     import secreto
 
-    token = secreto.token
-
-msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)                            
-
-msgban3 = discord.Embed(title='You have been banned from skyton server!',description='You have been banned automatically banned for violating rule number 9 of the server(send content +18 in text chat),enter' '[ this link ](' + "https://goo.gl/kDKqhF" + ')' 'if any mistake has been made',colour=0xFF7F00)                            
+    token = secreto.token                                                        
 
 @client.event
 async def on_ready():
@@ -38,7 +34,10 @@ async def on_message(message):
         d = datetime.utcnow() - message.timestamp
         s = d.seconds * 1000 + d.microseconds // 1000
         await client.send_message(message.channel, ':ping_pong: Pong! {}ms'.format(s))
-
+    
+    msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)
+    logmsg = discord.Object(id='440210099596689424')
+    
     if message.content.startswith('!advert'):
         logmsg = discord.object.id == ('440210099596689424')    
         role = discord.utils.get(message.server.roles, name='Admin')
@@ -52,8 +51,6 @@ async def on_message(message):
         log.set_footer(text='Att.{}, Skyton server admin.')
         await client.send_message(canal, '@everyone', embed=em)
         await client.send_message(logmsg, embed=log)        
-        
-    logmsg = discord.Object(id='440210099596689424')
         
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)
@@ -75,10 +72,12 @@ async def on_message(message):
     if len(message.content) > 325:
         await client.delete_message(message)
 
+    msgban3 = discord.Embed(title='You have been banned from skyton server!',description='You have been banned automatically banned for violating rule number 9 of the server(send content +18 in text chat),enter' '[ this link ](' + "https://goo.gl/kDKqhF" + ')' 'if any mistake has been made',colour=0xFF7F00)    
+    msgban2 = discord.Embed(title="THIS WAY YOU'RE GONNA KILL DADDY!",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
+    
     if message.content.lower().startswith("https://www.xvideos.com"):
         await client.delete_message(message)
         user = message.author
-        msgban2 = discord.Embed(title="THIS WAY YOU'RE GONNA KILL DADDY!",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         msgchannel = await client.send_message(message.channel, embed=msgban2)
         log = discord.Embed(description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         log.set_author(name='{} Was automatically banned!'.format(author.name), icon_url=user.avatar_url)
@@ -90,7 +89,6 @@ async def on_message(message):
     if message.content.lower().startswith("http://www.redtube.com"):
         await client.delete_message(message)
         user = message.author
-        msgban2 = discord.Embed(title="THIS WAY YOU'RE GONNA KILL DADDY!",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         msgchannel = await client.send_message(message.channel, embed=msgban2)
         log = discord.Embed(description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
         log.set_author(name='{} Was automatically banned!'.format(author.name), icon_url=user.avatar_url)

@@ -85,7 +85,7 @@ async def on_message(message):
     if message.content.lower().startswith("https://discord.gg"):
         await client.delete_message(message)
         user = message.author
-        await client.send_message(message.channel, "Please do not send invitation {}#{}" .format(user.name,user.discriminator))      
+        await client.send_message(message.channel, "Please do not send invitation @{}#{}" .format(user.name,user.discriminator))      
         
     if message.channel == client.get_channel('414445398212476928'):
         await client.add_reaction(message, "😐")

@@ -53,7 +53,7 @@ async def on_message(message):
         await client.send_message(canal, '@everyone', embed=em)
         await client.send_message(logmsg, embed=log)        
         
-logmsg = discord.utils.find(lambda c: c.name == 'log', message.server.channels)
+    logmsg = discord.utils.find(lambda c: c.name == 'log', message.server.channels)
         
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)

@@ -39,7 +39,6 @@ async def on_message(message):
     logmsg = discord.Object(id='440210099596689424')
     
     if message.content.startswith('!advert'):
-        logmsg = discord.object.id == ('440210099596689424')    
         role = discord.utils.get(message.server.roles, name='Admin')
         mensagem = message.content[8:]
         canal = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)

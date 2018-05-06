@@ -49,18 +49,18 @@ async def on_message(message):
         await client.send_message(canal, '@everyone', embed=em)
         await client.send_message(logmsg, embed=log)  
     
-    if message.content.startswith('!advert'):
+    if message.content.startswith('!advert'):        
         role = discord.utils.get(message.server.roles, name='Admin')
         mensagem = message.content[8:]
         canal = discord.utils.find(lambda c: c.name == 'adverts', message.server.channels)
         em = discord.Embed(description=mensagem, colour=0xdb513a)
         em.set_author(name='Notice of moderation!', icon_url=message.author.avatar_url)
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
-        log = discord.Embed(description=mensagem, colour=0xdb513a
+        log = discord.Embed(description=mensagem, colour=0xdb513a)
         log.set_author(name='{} sent a warning!'.format(message.author.name), icon_url=message.author.avatar_url)
-        log.set_footer(text='aaa')                    
+        log.set_footer(text='Att.{}, Skyton server admin.')
         await client.send_message(canal, '@everyone', embed=em)
-        await client.send_message(logmsg, embed=log)        
+        await client.send_message(logmsg, embed=log) 
         
     if message.content.lower().startswith("!ban"):
         await client.delete_message(message)

@@ -81,9 +81,10 @@ async def on_message(message):
     
     if len(message.content) > 325:
         await client.delete_message(message)
-
+    
+    user2 = message.mentions[0]        
     msgban3 = discord.Embed(title='You have been banned from skyton server!',description='You have been banned automatically banned for violating rule number 9 of the server(send content +18 in text chat),enter' '[ this link ](' + "https://goo.gl/kDKqhF" + ')' 'if any mistake has been made',colour=0xFF7F00)    
-    msgban2 = discord.Embed(title="THIS WAY YOU'RE GONNA KILL DADDY!",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user),color=0xFF7F00)
+    msgban2 = discord.Embed(title="THIS WAY YOU'RE GONNA KILL DADDY!",description="The member **{}** was automatically banned for violating rule number 9 of the server".format(user2),color=0xFF7F00)
     
     if message.content.lower().startswith("https://www.xvideos.com"):
         await client.delete_message(message)

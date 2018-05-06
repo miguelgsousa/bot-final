@@ -57,8 +57,9 @@ async def on_message(message):
         em.set_author(name='Notice of moderation!', icon_url=message.author.avatar_url)
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
         log = discord.Embed(description=mensagem, colour=0xdb513a)
+        d = datetime.utcnow() - message.timestamp
         log.set_author(name='{} sent a warning!'.format(message.author.name), icon_url=message.author.avatar_url)
-        log.set_footer(text='{}:{}')
+        log.set_footer(text='{}:{}'.format(d.hour,d.minute))
         await client.send_message(canal, '@everyone', embed=em)
         await client.send_message(logmsg, embed=log)        
         

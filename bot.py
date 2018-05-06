@@ -7,7 +7,6 @@ import re
 import aiohttp
 from datetime import datetime, timedelta
 import os
-import datetime
 
 client = discord.Client()
 
@@ -60,7 +59,7 @@ async def on_message(message):
         log = discord.Embed(description=mensagem, colour=0xdb513a)
         temp = datetime.datetime.now()
         log.set_author(name='{} sent a warning!'.format(message.author.name), icon_url=message.author.avatar_url)
-        log.set_footer(text='{}:{}'.format(temp.datetime))
+        log.set_footer(text='{}'.format(temp.seconds))
         await client.send_message(canal, '@everyone', embed=em)
         await client.send_message(logmsg, embed=log)        
         

@@ -58,8 +58,7 @@ async def on_message(message):
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
         log = discord.Embed(description=mensagem, colour=0xdb513a)
         log.set_author(name='{} sent a warning!'.format(message.author.name), icon_url=message.author.avatar_url)
-        datetime = datetime.datetime.now()
-        log.set_footer(text='{}:{}'.format(datetime.now))
+        log.set_footer(text='{}:{}')
         await client.send_message(canal, '@everyone', embed=em)
         await client.send_message(logmsg, embed=log)        
         
@@ -73,7 +72,7 @@ async def on_message(message):
         em.set_thumbnail(url=user.avatar_url)
         log = discord.Embed(description="Moderator **{}** banned member **{}** from server".format(author.name, user),color=0xFF7F00)
         log.set_author(name='{} banned a member!'.format(author.name), icon_url=message.author.avatar_url)
-        log.set_footer(text=' {}:{} ' .format(message.hour,message.minute))
+        log.set_footer(text=' {}:{} ')
         await client.send_message(user, embed=msgban)
         msgchannel = await client.send_message(message.channel, embed=em)
         await client.add_reaction(msgchannel, "😮")

@@ -57,7 +57,7 @@ async def on_message(message):
         em = discord.Embed(description=mensagem, colour=0xdb513a)
         em.set_author(name='Notice of moderation!', icon_url=message.author.avatar_url)
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
-        temp = datetime.now()
+        temp = datetime.time.now()
         log = discord.Embed(description=mensagem, colour=0xdb513a)
         log.set_author(name='{} sent a warning!'.format(message.author.name), icon_url=message.author.avatar_url)
         log.set_footer(text='{}'.format(temp))

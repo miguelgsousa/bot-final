@@ -37,6 +37,8 @@ async def on_message(message):
     
     msgban = discord.Embed(title='For one or more reasons you have been banned from skyton server!',description='If you think it was an unfair ban between' '[ in this link ](' + "https://goo.gl/kDKqhF" + ')' 'revoke your ban',colour=0xFF7F00)
     logmsg = discord.Object(id='440210099596689424')
+
+temp = datetime.datetime.now()
     
     if message.content.startswith('!important'):
         mensagem = message.content[13:]
@@ -58,7 +60,7 @@ async def on_message(message):
         em.set_footer(text='Att.{}, Skyton server admin.'.format(message.author.name))
         log = discord.Embed(description=mensagem, colour=0xdb513a)
         log.set_author(name='{} sent a warning!'.format(message.author.name), icon_url=message.author.avatar_url)
-        log.set_footer(text='Att.{}, Skyton server admin.'.format(message.author))
+        log.set_footer(text='{}'.format(temp))
         await client.send_message(canal, '@everyone', embed=em)
         await client.send_message(logmsg, embed=log) 
         

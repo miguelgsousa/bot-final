@@ -4,3 +4,10 @@ chardet==3.0.4
 discord.py==0.16.12
 multidict==4.1.0
 websockets==3.4
+google==2.0.1
+google-api-python-client==1.6.6
+google-auth==1.4.1
+google-auth-httplib2==0.0.3
+google-auth-oauthlib==0.2.0
+
+

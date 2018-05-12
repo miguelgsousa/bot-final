@@ -8,6 +8,17 @@ from .utils import checks
 import requests
 import aiohttp
 from apiclient.discovery import build
+import os
+
+client = discord.Client()
+
+is_prod = os.environ.get('IS_HEROKU', None)
+if is_prod:
+    token = os.environ.get('TOKEN')
+else:
+    import secreto
+
+    token = secreto.token
 
 class Skyton:
     def __init__(self, bot):
@@ -84,4 +95,5 @@ def setup(bot):
     loop.create_task(n.playlist_checker())
     bot.add_cog(n)
 
+client.run(token)
 

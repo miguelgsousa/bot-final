@@ -125,4 +125,4 @@ async def on_message(message):
     if message.author.id == ('155149108183695360'):
         await client.add_reaction(message, "😐")
         
-client.run(token)
+client.run(s7nH1btH0B1MdKzBTJ_JRKejw-9-vFha)
